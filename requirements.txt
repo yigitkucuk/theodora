@@ -1,3 +1,4 @@
 chess
 chess.pgn
 chess.polyglot
+chess.uci

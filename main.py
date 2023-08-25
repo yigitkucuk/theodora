@@ -253,18 +253,28 @@ def evaluation_function():
         return -(total_score + piece_difference)
 
 
+#----------------------------------------------------#
+#               THEODORA PLAYS AGAINST ITSELF        #
+#----------------------------------------------------#
 moves = []
 board = chess.Board()
-
-number_of_moves = 0.5
+number_of_moves = 1
 
 while not board.is_game_over(claim_draw=draw_agreement_allowed):
-    board.push(make_move(40 ))
 
-    print(f"The move is: {moves[-1]}\n" f"The number of moves: {number_of_moves}\n"
-          f"\n" f"{board}\n")
+    if board.turn:
+        board.push(make_move(40))
 
-    number_of_moves = number_of_moves + 0.5
+        print(f"The move is: {moves[-1]}\n" f"The number of moves: {number_of_moves}\n"
+              f"\n" f"{board}\n")
+
+    else:
+        board.push(make_move(40))
+
+        print(f"The move is: {moves[-1]}\n" f"The number of moves: {number_of_moves}\n"
+              f"\n" f"{board}\n")
+
+    number_of_moves = number_of_moves + 1
 
 game = chess.pgn.Game()
 
@@ -274,3 +284,36 @@ for key, value in headers.items():
 game.headers["Result"] = str(board.result(claim_draw=draw_agreement_allowed))
 game.add_line(moves)
 print(game)
+
+#----------------------------------------------------#
+#               PLAY AGAINST THEODORA                #
+#----------------------------------------------------#
+#moves = []
+#board = chess.Board()
+#number_of_moves = 1
+#
+#while not board.is_game_over(claim_draw=draw_agreement_allowed):
+#
+#    if board.turn:
+#        board.push(make_move(40))
+#
+#        print(f"The move is: {moves[-1]}\n" f"The number of moves: {number_of_moves}\n"
+#              f"\n" f"{board}\n")
+#
+#    else:
+#        user_move = input("Enter your move:")
+#        board.push_san(user_move)
+#
+#        print(f"The move is: {moves[-1]}\n" f"The number of moves: {number_of_moves}\n"
+#              f"\n" f"{board}\n")
+#
+#    number_of_moves = number_of_moves + 1
+#
+#game = chess.pgn.Game()
+#
+#for key, value in headers.items():
+#    game.headers[key] = value
+#
+#game.headers["Result"] = str(board.result(claim_draw=draw_agreement_allowed))
+#game.add_line(moves)
+#print(game)

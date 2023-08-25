@@ -21,6 +21,6 @@ A Chess Engine Enhanced with Transposition Tables, Move Ordering, Null Move Prun
 
 - I plan to develop a terminal interface for this engine to play against stronger engines such as Stockfish and Komodo.
 
-- I will probably not be further developing this engine after I make one last improvement, that is, the migration from simplified evaluation function to PeSTO's evaluation function. However, if I come across more improvements while looking onto the forums, I might bring in further developments.
+- I will probably not be further developing this engine after I make one last improvement, that is, the migration from simplified evaluation function to an improved version of PeSTO's evaluation function. However, if I come across more improvements while looking onto the forums, I might bring in further developments.
   
 - Huge shoutout to the [chess programming wiki](chessprogramming.org).
